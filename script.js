@@ -62,8 +62,12 @@ function Game() {
         console.log(`Player Score : ${playerScore} ComputerScore: ${compScore}`)
     }
     if (playerScore > compScore) {
-        alert(`You Win!\nPlayer : ${playerScore} Computer : ${compScore} Tie : ${numberOfTie}`)
+        alert(`You Win!\nPlayer : ${playerScore} Computer : ${compScore} Tie : ${numberOfTie}`);
+    } else if (playerScore < compScore) {
+        alert(`You Lose!\nPlayer : ${playerScore} Computer : ${compScore} Tie : ${numberOfTie}`);
     } else {
-        alert(`You Lose!\nPlayer : ${playerScore} Computer : ${compScore} Tie : ${numberOfTie}`)
+        alert(`Tie!\nPlayer : ${playerScore} Computer : ${compScore} Tie : ${numberOfTie}`);
     }
 }
+
+Game();
