@@ -57,7 +57,7 @@ function Game() {
 
     for (let i = 0; i < 5; i++) {
         let choiceOfComputer = computerChoice();
-        choiceOfPlayer = window.prompt("Enter a Choice[Rock, Paper, Scissors]")
+        choiceOfPlayer = window.prompt("Enter a Choice[Rock, Paper, Scissors]", "paper")
         console.log(playRound(choiceOfPlayer, choiceOfComputer));
         console.log(`Player Score : ${playerScore} ComputerScore: ${compScore}`)
     }
