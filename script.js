@@ -24,12 +24,21 @@ function reset() {
     tScore.textContent = `Ties : ${numberOfTie}`;
 }
 
-function updateScore(winner) {
+function updateScore() {
     pScore.textContent = `Player : ${playerScore}`;
     cScore.textContent = `Computer : ${compScore}`;
     tScore.textContent = `Ties : ${numberOfTie}`;
 
     if (compScore + numberOfTie + playerScore === 5) {
+        console.log(`pScore: ${playerScore} cScore: ${compScore} tScore: ${numberOfTie}`)
+        let winner = ""
+        if (playerScore > compScore) {
+            winner = "Player Wins :)"
+        } else if (playerScore < compScore) {
+            winner = "Computer Wins :("
+        } else {
+            winner = "Its a Tie (-_-)"
+        }
         alert(winner)
         reset()
     }
@@ -98,7 +107,7 @@ rock.addEventListener('click', function (e) {
     div.className = "winnerDiv"
     div.textContent = `This round: ${winner}`
     winnerContainer.appendChild(div)
-    updateScore(winner);
+    updateScore();
 })
 
 paper.addEventListener('click', function (e) {
@@ -107,7 +116,7 @@ paper.addEventListener('click', function (e) {
     div.className = "winnerDiv"
     div.textContent = `This round: ${winner}`
     winnerContainer.appendChild(div)
-    updateScore(winner);
+    updateScore();
 })
 
 scissors.addEventListener('click', function (e) {
@@ -116,7 +125,7 @@ scissors.addEventListener('click', function (e) {
     div.className = "winnerDiv"
     div.textContent = `This round: ${winner}`
     winnerContainer.appendChild(div)
-    updateScore(winner);
+    updateScore();
 })
 
 
