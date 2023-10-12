@@ -107,7 +107,9 @@ rock.addEventListener('click', function (e) {
     div.className = "winnerDiv"
     div.textContent = `This round: ${winner}`
     winnerContainer.appendChild(div)
-    updateScore();
+    setTimeout(() => {
+        updateScore()
+    }, 1000);
 })
 
 paper.addEventListener('click', function (e) {
@@ -115,8 +117,10 @@ paper.addEventListener('click', function (e) {
     const div = document.createElement('div');
     div.className = "winnerDiv"
     div.textContent = `This round: ${winner}`
-    winnerContainer.appendChild(div)
-    updateScore();
+    winnerContainer.appendChild(div);
+    setTimeout(() => {
+        updateScore()
+    }, 1000);
 })
 
 scissors.addEventListener('click', function (e) {
@@ -125,7 +129,9 @@ scissors.addEventListener('click', function (e) {
     div.className = "winnerDiv"
     div.textContent = `This round: ${winner}`
     winnerContainer.appendChild(div)
-    updateScore();
+    setTimeout(() => {
+        updateScore()
+    }, 1000);
 })
 
 
