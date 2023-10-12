@@ -9,10 +9,30 @@ function computerChoice() {
     return choice[Math.floor(Math.random() * choice.length)];
 }
 
-function updateScore() {
+function reset() {
+    const winnerDiv = Array.from(document.querySelectorAll('.winnerDiv'))
+    winnerDiv.forEach(element => {
+        element.remove();
+    });
+
+    compScore = 0;
+    playerScore = 0;
+    numberOfTie = 0;
+
     pScore.textContent = `Player : ${playerScore}`;
     cScore.textContent = `Computer : ${compScore}`;
     tScore.textContent = `Ties : ${numberOfTie}`;
+}
+
+function updateScore(winner) {
+    pScore.textContent = `Player : ${playerScore}`;
+    cScore.textContent = `Computer : ${compScore}`;
+    tScore.textContent = `Ties : ${numberOfTie}`;
+
+    if (compScore + numberOfTie + playerScore === 5) {
+        alert(winner)
+        reset()
+    }
 }
 
 function playRound(playerChoice, compChoice) {
@@ -59,24 +79,6 @@ function playRound(playerChoice, compChoice) {
     return whoWins;
 }
 
-function Game() {
-
-    // for (let i = 0; i < 5; i++) {
-    //     let choiceOfComputer = computerChoice();
-    //     choiceOfPlayer = window.prompt("Enter a Choice[Rock, Paper, Scissors]", "paper")
-    //     console.log(playRound(choiceOfPlayer, choiceOfComputer));
-    //     console.log(`Player Score : ${playerScore} ComputerScore: ${compScore}`)
-    // }
-    // if (playerScore > compScore) {
-    //     alert(`You Win!\nPlayer : ${playerScore} Computer : ${compScore} Tie : ${numberOfTie}`);
-    // } else if (playerScore < compScore) {
-    //     alert(`You Lose!\nPlayer : ${playerScore} Computer : ${compScore} Tie : ${numberOfTie}`);
-    // } else {
-    //     alert(`Tie!\nPlayer : ${playerScore} Computer : ${compScore} Tie : ${numberOfTie}`);
-    // }
-}
-Game();
-
 const scoreContainer = document.querySelector('.scoreContainer');
 const buttonContainer = document.querySelector('.buttonContainer');
 const winnerContainer = document.querySelector('.winnerContainer');
@@ -91,24 +93,30 @@ const cScore = document.querySelector('#computerScore');
 
 
 rock.addEventListener('click', function (e) {
+    let winner = playRound(e.target.id, computerChoice());
     const div = document.createElement('div');
-    div.textContent = "This round: " + playRound(e.target.id, computerChoice())
+    div.className = "winnerDiv"
+    div.textContent = `This round: ${winner}`
     winnerContainer.appendChild(div)
-    updateScore();
+    updateScore(winner);
 })
 
 paper.addEventListener('click', function (e) {
+    let winner = playRound(e.target.id, computerChoice());
     const div = document.createElement('div');
-    div.textContent = "This round: " + playRound(e.target.id, computerChoice())
+    div.className = "winnerDiv"
+    div.textContent = `This round: ${winner}`
     winnerContainer.appendChild(div)
-    updateScore();
+    updateScore(winner);
 })
 
 scissors.addEventListener('click', function (e) {
+    let winner = playRound(e.target.id, computerChoice());
     const div = document.createElement('div');
-    div.textContent = "This round: " + playRound(e.target.id, computerChoice())
+    div.className = "winnerDiv"
+    div.textContent = `This round: ${winner}`
     winnerContainer.appendChild(div)
-    updateScore();
+    updateScore(winner);
 })
 
 

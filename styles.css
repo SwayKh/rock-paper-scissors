@@ -11,6 +11,12 @@ body {
     font-weight: 700;
 }
 
+
+button {
+    font-size: 32px;
+    font-weight: 700;
+}
+
 .scoreContainer,
 .buttonContainer {
     display: flex;
